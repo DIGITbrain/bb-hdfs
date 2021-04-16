@@ -1,4 +1,4 @@
-FROM digitbrain/bb-hdfs:base-latest
+FROM digitbrain/bb-hdfs:base-hadoop3.3.0-java11
 
 HEALTHCHECK CMD curl -f http://localhost:9864/ || exit 1
 

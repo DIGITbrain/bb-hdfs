@@ -2,7 +2,7 @@ version: "3"
 
 services:
   namenode:
-    image: digitbrain/bb-hdfs:namenode-latest
+    image: digitbrain/bb-hdfs:namenode-hadoop3.3.0-java11
     container_name: namenode
     restart: always
     ports:
@@ -17,7 +17,7 @@ services:
 
   datanode:
     image: datanode
-    container_name: digitbrain/bb-hdfs:datanode-latest
+    container_name: digitbrain/bb-hdfs:datanode-hadoop3.3.0-java11
     restart: always
     volumes:
       - hadoop_datanode:/hadoop/dfs/data
@@ -28,7 +28,7 @@ services:
 
   datanode2:
     image: datanode
-    container_name: digitbrain/bb-hdfs:datanode-latest
+    container_name: digitbrain/bb-hdfs:datanode-hadoop3.3.0-java11
     restart: always
     volumes:
       - hadoop_datanode2:/hadoop/dfs/data
@@ -39,7 +39,7 @@ services:
 
   datanode3:
     image: datanode
-    container_name: digitbrain/bb-hdfs:datanode-latest
+    container_name: digitbrain/bb-hdfs:datanode-hadoop3.3.0-java11
     restart: always
     volumes:
       - hadoop_datanode3:/hadoop/dfs/data
