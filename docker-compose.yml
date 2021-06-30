@@ -9,46 +9,41 @@ services:
       - 9870:9870
       - 9000:9000
     volumes:
-      - hadoop_namenode:/hadoop/dfs/name
+      - ./hadoop/namenode:/hadoop/dfs/name
     environment:
       - CLUSTER_NAME=test
     env_file:
       - ./hadoop.env
 
   datanode:
-    image: datanode
-    container_name: digitbrain/bb-hdfs:datanode-hadoop3.3.0-java11
+    image: digitbrain/bb-hdfs:datanode-hadoop3.3.0-java11
+    container_name: datanode
     restart: always
     volumes:
-      - hadoop_datanode:/hadoop/dfs/data
+      - ./hadoop/datanode/1:/hadoop/dfs/data
     environment:
       SERVICE_PRECONDITION: "namenode:9870"
     env_file:
       - ./hadoop.env
 
   datanode2:
-    image: datanode
-    container_name: digitbrain/bb-hdfs:datanode-hadoop3.3.0-java11
+    image: digitbrain/bb-hdfs:datanode-hadoop3.3.0-java11
+    container_name: datanode2
     restart: always
     volumes:
-      - hadoop_datanode2:/hadoop/dfs/data
+      - ./hadoop/datanode/2:/hadoop/dfs/data
     environment:
       SERVICE_PRECONDITION: "namenode:9870"
     env_file:
       - ./hadoop.env
 
   datanode3:
-    image: datanode
-    container_name: digitbrain/bb-hdfs:datanode-hadoop3.3.0-java11
+    image: digitbrain/bb-hdfs:datanode-hadoop3.3.0-java11
+    container_name: datanode3
     restart: always
     volumes:
-      - hadoop_datanode3:/hadoop/dfs/data
+      - ./hadoop/datanode/3:/hadoop/dfs/data
     environment:
       SERVICE_PRECONDITION: "namenode:9870"
     env_file:
       - ./hadoop.env
-volumes:
-  hadoop_namenode:
-  hadoop_datanode:
-  hadoop_datanode2:
-  hadoop_datanode3:
